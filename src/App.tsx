@@ -1,26 +1,35 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { FC, useState } from "react";
+import TodoForm from "./components/TodoForm";
+import TodoList from "./components/TodoList";
+import Todo from "./models/Todo.model";
+const App: FC = () => {
+  const [todos, setTodos] = useState<Todo[]>([]);
 
-function App() {
+  const handleAddTodoItem = (inputValue: string) => {
+    setTodos((prevTodos) => [
+      ...prevTodos,
+      { id: Math.random().toString(), description: inputValue },
+    ]);
+    // console.log(inputValue);
+  };
+
+  const handleDeleteTodoItem = (todoId: string) => {
+    setTodos((prevTodos) =>
+      prevTodos.filter((todoItem) => todoItem.id !== todoId)
+    );
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <div>
+      <header className="w-full bg-blue-500 h-24 flex justify-center items-center">
+        <div className="text-center text-4xl font-bold">
+          Learn to make Todo App
+        </div>
       </header>
+      <TodoForm handleAddTodoItem={handleAddTodoItem} />
+      <TodoList data={todos} handleDeleteTodoItem={handleDeleteTodoItem} />
     </div>
   );
-}
+};
 
 export default App;
