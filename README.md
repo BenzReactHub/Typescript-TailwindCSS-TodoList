@@ -1,3 +1,11 @@
+# DEMO URL
+
+<https://benzreacthub.github.io/Typescript-TailwindCSS-TodoList/>
+
+### 練習來源
+
+<https://www.youtube.com/channel/UC1rMgKD4Rn-7aVcymjlvhfQ/videos>
+
 ### React + Typescript 項目初始化
 
 [https://create-react-app.dev/docs/adding-typescript/](https://create-react-app.dev/docs/adding-typescript/)
